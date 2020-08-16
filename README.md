@@ -1,4 +1,4 @@
-<p align="center" width="200"><img src="https://raw.githubusercontent.com/Remote-Architects-Club/hasura-migrations/master/github-image.png"/></a></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Remote-Architects-Club/hasura-migrations/master/github-image.png"  width="200"/></a></p>
 <br/><br/>
 <p align="center" >Migrations for the Hasura back end feeding the site <a href="https://remotearchitects.club"><strong>remotearchitects.club</strong></a></p>
 <br/><br/>
