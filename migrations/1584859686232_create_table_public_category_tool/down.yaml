@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: DROP TABLE "public"."category_tool";
+  type: run_sql

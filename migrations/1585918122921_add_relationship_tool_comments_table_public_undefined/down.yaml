@@ -1,0 +1,6 @@
+- args:
+    relationship: tool_comments
+    table:
+      name: tool
+      schema: public
+  type: drop_relationship

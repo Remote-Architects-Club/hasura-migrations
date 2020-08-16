@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: alter table "public"."experience_tool" drop constraint "experience_tool_pkey";
+  type: run_sql

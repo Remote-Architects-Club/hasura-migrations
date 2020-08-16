@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."office" ADD COLUMN "latest_experience" date NULL;
+  type: run_sql

@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: alter table "public"."experience" rename column "toolsText" to "tools_text";
+  type: run_sql

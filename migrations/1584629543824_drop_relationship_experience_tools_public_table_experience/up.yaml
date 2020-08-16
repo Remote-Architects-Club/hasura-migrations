@@ -1,0 +1,6 @@
+- args:
+    relationship: experience_tools
+    table:
+      name: experience
+      schema: public
+  type: drop_relationship

@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: COMMENT ON COLUMN "public"."experience"."company_text" IS E'Company policy,
+      extra thoughts';
+  type: run_sql

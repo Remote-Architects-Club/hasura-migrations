@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: alter table "public"."office_revision" drop constraint "office_revision_office_id_fkey";
+  type: run_sql

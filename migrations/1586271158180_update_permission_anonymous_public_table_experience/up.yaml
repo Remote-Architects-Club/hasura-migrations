@@ -1,0 +1,33 @@
+- args:
+    role: anonymous
+    table:
+      name: experience
+      schema: public
+  type: drop_select_permission
+- args:
+    permission:
+      allow_aggregations: true
+      columns:
+      - colleagues
+      - company
+      - company_text
+      - created_at
+      - final_tips
+      - hardware
+      - id
+      - name
+      - not_wfh_reason
+      - not_wfh_reason_text
+      - office_id
+      - own_experience
+      - own_experience_text
+      - tools
+      - tools_text
+      - wfh
+      computed_fields: []
+      filter: {}
+    role: anonymous
+    table:
+      name: experience
+      schema: public
+  type: create_select_permission

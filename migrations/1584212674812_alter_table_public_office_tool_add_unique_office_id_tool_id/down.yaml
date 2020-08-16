@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: alter table "public"."office_tool" drop constraint "office_tool_office_id_tool_id_key";
+  type: run_sql

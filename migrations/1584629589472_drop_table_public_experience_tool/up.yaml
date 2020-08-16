@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: DROP TABLE "public"."experience_tool";
+  type: run_sql

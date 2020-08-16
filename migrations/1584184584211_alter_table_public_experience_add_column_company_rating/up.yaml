@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."experience" ADD COLUMN "company_rating" integer NOT
+      NULL DEFAULT 3;
+  type: run_sql

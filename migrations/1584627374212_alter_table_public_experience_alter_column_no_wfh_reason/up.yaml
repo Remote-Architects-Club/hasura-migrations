@@ -1,0 +1,10 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."experience" ALTER COLUMN "no_wfh_reason" TYPE int4;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: alter table "public"."experience" rename column "no_wfh_reason" to "not_wfh_reason";
+  type: run_sql

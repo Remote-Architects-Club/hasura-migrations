@@ -1,0 +1,10 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: |-
+      alter table "public"."office"
+                 add constraint "office_country_iso_fkey"
+                 foreign key ("country_iso")
+                 references "public"."country"
+                 ("iso") on update cascade on delete no action;
+  type: run_sql

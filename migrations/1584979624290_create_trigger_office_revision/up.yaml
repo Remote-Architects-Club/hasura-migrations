@@ -1,0 +1,8 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: "CREATE OR REPLACE FUNCTION trigger_office_revision()\n    RETURNS trigger
+      \n    LANGUAGE plpgsql\nAS\n$$\n    BEGIN\n        INSERT INTO office_revision
+      (office_id, remote_policy, remote_since, user_id) values (OLD.id, OLD.remote_policy,
+      OLD.remote_since, NEW.user_id);\n        RETURN new;\n    END;\n$$;"
+  type: run_sql

@@ -1,0 +1,16 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."experience" ADD COLUMN "remote_since" date;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."experience" ALTER COLUMN "remote_since" DROP NOT NULL;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."experience" ALTER COLUMN "remote_since" SET DEFAULT
+      now();
+  type: run_sql

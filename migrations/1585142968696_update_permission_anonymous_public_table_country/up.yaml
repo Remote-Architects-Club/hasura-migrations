@@ -1,0 +1,20 @@
+- args:
+    role: anonymous
+    table:
+      name: country
+      schema: public
+  type: drop_select_permission
+- args:
+    permission:
+      allow_aggregations: false
+      columns:
+      - iso
+      - name
+      computed_fields: []
+      filter: {}
+      limit: 260
+    role: anonymous
+    table:
+      name: country
+      schema: public
+  type: create_select_permission

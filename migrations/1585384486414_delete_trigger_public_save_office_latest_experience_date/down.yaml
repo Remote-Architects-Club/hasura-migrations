@@ -1,0 +1,8 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: |-
+      CREATE TRIGGER "save_office_latest_experience_date"
+      AFTER INSERT ON "public"."experience"
+      FOR EACH ROW EXECUTE FUNCTION set_office_latest_experience_date();
+  type: run_sql

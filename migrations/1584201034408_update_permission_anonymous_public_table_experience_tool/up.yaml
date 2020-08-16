@@ -1,0 +1,16 @@
+- args:
+    permission:
+      allow_upsert: true
+      check: {}
+      columns:
+      - experience_id
+      - tool_id
+      localPresets:
+      - key: ""
+        value: ""
+      set: {}
+    role: anonymous
+    table:
+      name: experience_tool
+      schema: public
+  type: create_insert_permission

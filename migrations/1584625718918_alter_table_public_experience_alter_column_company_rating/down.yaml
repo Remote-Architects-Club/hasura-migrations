@@ -1,0 +1,21 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."experience" ALTER COLUMN "company_rating" TYPE integer;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE ONLY "public"."experience" ALTER COLUMN "company_rating" SET
+      DEFAULT 3;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: COMMENT ON COLUMN "public"."experience"."company_rating" IS E'';
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: alter table "public"."experience" rename column "company" to "company_rating";
+  type: run_sql

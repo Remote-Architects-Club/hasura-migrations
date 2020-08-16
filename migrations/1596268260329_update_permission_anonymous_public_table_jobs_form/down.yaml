@@ -1,0 +1,6 @@
+- args:
+    role: anonymous
+    table:
+      name: jobs_form
+      schema: public
+  type: drop_insert_permission

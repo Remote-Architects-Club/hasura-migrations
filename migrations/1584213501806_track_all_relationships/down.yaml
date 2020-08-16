@@ -1,0 +1,24 @@
+- args:
+    relationship: office_tools
+    table:
+      name: office
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: office
+    table:
+      name: office_tool
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: tool
+    table:
+      name: office_tool
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: office_tools
+    table:
+      name: tool
+      schema: public
+  type: drop_relationship

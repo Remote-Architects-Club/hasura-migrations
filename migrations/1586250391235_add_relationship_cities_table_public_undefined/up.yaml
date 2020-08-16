@@ -1,0 +1,12 @@
+- args:
+    name: cities
+    table:
+      name: country
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: country_iso
+        table:
+          name: city
+          schema: public
+  type: create_array_relationship

@@ -1,0 +1,16 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."experience" ALTER COLUMN "own_experience" TYPE integer;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE ONLY "public"."experience" ALTER COLUMN "own_experience" SET
+      DEFAULT 0;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."experience" ALTER COLUMN "own_experience" SET NOT NULL;
+  type: run_sql

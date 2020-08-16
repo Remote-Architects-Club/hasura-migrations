@@ -1,0 +1,14 @@
+- args:
+    permission:
+      allow_aggregations: false
+      columns:
+      - iso
+      - name
+      computed_fields: []
+      filter: {}
+      limit: 100
+    role: anonymous
+    table:
+      name: country
+      schema: public
+  type: create_select_permission

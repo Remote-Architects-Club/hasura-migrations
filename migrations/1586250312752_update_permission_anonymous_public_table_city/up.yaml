@@ -1,0 +1,17 @@
+- args:
+    permission:
+      columns:
+      - country_iso
+      - lat
+      - lng
+      - name
+      filter: {}
+      localPresets:
+      - key: ""
+        value: ""
+      set: {}
+    role: anonymous
+    table:
+      name: city
+      schema: public
+  type: create_update_permission

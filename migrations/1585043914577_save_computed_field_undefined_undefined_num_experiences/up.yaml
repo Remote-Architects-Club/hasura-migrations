@@ -1,0 +1,11 @@
+- args:
+    comment: Number of experiences for given office.
+    definition:
+      function:
+        name: office_num_experiences
+        schema: public
+    name: num_experiences
+    table:
+      name: office
+      schema: public
+  type: add_computed_field

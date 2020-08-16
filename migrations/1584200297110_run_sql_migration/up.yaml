@@ -1,0 +1,9 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: |-
+      create index on "experience" (office_id);
+      create index on "office" (country_iso);
+      create index on "experience_tool" (experience_id);
+      create index on "experience_tool" (tool_id);
+  type: run_sql

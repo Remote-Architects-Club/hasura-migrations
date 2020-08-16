@@ -1,0 +1,22 @@
+- args:
+    permission:
+      allow_aggregations: false
+      columns:
+      - id
+      - own_experience
+      - own_experience_text
+      - name
+      - office_id
+      - created_at
+      - office_name
+      - city
+      - country_iso
+      - ordering
+      computed_fields: []
+      filter: {}
+      limit: null
+    role: anonymous
+    table:
+      name: random_experience
+      schema: public
+  type: create_select_permission

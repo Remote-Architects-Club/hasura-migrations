@@ -1,0 +1,10 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE ONLY "public"."experience" ALTER COLUMN "name" SET DEFAULT ''Anonymous'::text';
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."experience" ALTER COLUMN "name" SET NOT NULL;
+  type: run_sql

@@ -1,0 +1,22 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."experience" ALTER COLUMN "own_rating" TYPE int4;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE ONLY "public"."experience" ALTER COLUMN "own_rating" SET DEFAULT
+      1;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: 'COMMENT ON COLUMN "public"."experience"."own_rating" IS E''Own experience
+      rating: from 1 to 3 (bad to good)'';'
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: alter table "public"."experience" rename column "own_rating" to "own_experience";
+  type: run_sql

@@ -1,0 +1,17 @@
+- args:
+    permission:
+      allow_upsert: true
+      check: {}
+      columns:
+      - comment
+      - name
+      - tool_id
+      localPresets:
+      - key: ""
+        value: ""
+      set: {}
+    role: anonymous
+    table:
+      name: tool_comment
+      schema: public
+  type: create_insert_permission

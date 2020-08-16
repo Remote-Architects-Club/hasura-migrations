@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: "CREATE TRIGGER make_office_backup\n    BEFORE UPDATE ON office\n    FOR
+      EACH ROW\n    \n    EXECUTE PROCEDURE trigger_office_revision();"
+  type: run_sql

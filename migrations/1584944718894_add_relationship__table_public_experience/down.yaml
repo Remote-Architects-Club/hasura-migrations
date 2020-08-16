@@ -1,0 +1,6 @@
+- args:
+    relationship: office_id_fkey
+    table:
+      name: experience
+      schema: public
+  type: drop_relationship

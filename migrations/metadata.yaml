@@ -1,0 +1,428 @@
+version: 2
+tables:
+- table:
+    schema: public
+    name: category_tool
+  array_relationships:
+  - name: tool_categories
+    using:
+      foreign_key_constraint_on:
+        column: category_name
+        table:
+          schema: public
+          name: tool_category
+  select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+      - name
+      - comment
+      filter: {}
+- table:
+    schema: public
+    name: city
+  object_relationships:
+  - name: country
+    using:
+      foreign_key_constraint_on: country_iso
+  array_relationships:
+  - name: offices
+    using:
+      foreign_key_constraint_on:
+        column: city_id
+        table:
+          schema: public
+          name: office
+  insert_permissions:
+  - role: anonymous
+    permission:
+      check: {}
+      columns:
+      - country_iso
+      - lat
+      - lng
+      - name
+  select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+      - country_iso
+      - id
+      - lat
+      - lng
+      - name
+      filter: {}
+      allow_aggregations: true
+  update_permissions:
+  - role: anonymous
+    permission:
+      columns:
+      - country_iso
+      - lat
+      - lng
+      - name
+      filter: {}
+      check: null
+- table:
+    schema: public
+    name: country
+  array_relationships:
+  - name: cities
+    using:
+      foreign_key_constraint_on:
+        column: country_iso
+        table:
+          schema: public
+          name: city
+  - name: offices
+    using:
+      foreign_key_constraint_on:
+        column: country_iso
+        table:
+          schema: public
+          name: office
+  select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+      - iso
+      - name
+      filter: {}
+      limit: 260
+- table:
+    schema: public
+    name: experience
+  object_relationships:
+  - name: office
+    using:
+      foreign_key_constraint_on: office_id
+  insert_permissions:
+  - role: anonymous
+    permission:
+      check: {}
+      columns:
+      - colleagues
+      - company
+      - company_text
+      - final_tips
+      - hardware
+      - name
+      - not_wfh_reason
+      - not_wfh_reason_text
+      - office_id
+      - own_experience
+      - own_experience_text
+      - tools
+      - tools_text
+      - user_ip
+      - wfh
+  select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+      - colleagues
+      - company
+      - company_text
+      - created_at
+      - final_tips
+      - hardware
+      - id
+      - name
+      - not_wfh_reason
+      - not_wfh_reason_text
+      - office_id
+      - own_experience
+      - own_experience_text
+      - tools
+      - tools_text
+      - wfh
+      filter: {}
+      allow_aggregations: true
+  event_triggers:
+  - name: send_email_on_experience_insert
+    definition:
+      enable_manual: false
+      insert:
+        columns: '*'
+    retry_conf:
+      num_retries: 0
+      interval_sec: 10
+      timeout_sec: 60
+    webhook: https://remotearchitects.club/.netlify/functions/sendgrid
+- table:
+    schema: public
+    name: jobs_form
+  insert_permissions:
+  - role: anonymous
+    permission:
+      check: {}
+      columns:
+      - ip
+      - location
+      - type
+      backend_only: false
+- table:
+    schema: public
+    name: office
+  object_relationships:
+  - name: cityByCityId
+    using:
+      foreign_key_constraint_on: city_id
+  - name: country
+    using:
+      foreign_key_constraint_on: country_iso
+  array_relationships:
+  - name: experiences
+    using:
+      foreign_key_constraint_on:
+        column: office_id
+        table:
+          schema: public
+          name: experience
+  - name: office_tools
+    using:
+      foreign_key_constraint_on:
+        column: office_id
+        table:
+          schema: public
+          name: office_tool
+  computed_fields:
+  - name: num_experiences
+    definition:
+      function:
+        schema: public
+        name: office_num_experiences
+    comment: Number of experiences for given office.
+  insert_permissions:
+  - role: anonymous
+    permission:
+      check: {}
+      columns:
+      - city
+      - city_id
+      - country_iso
+      - latest_experience
+      - name
+      - num_people
+      - remote_policy
+      - remote_since
+      - url
+      - user_id
+  select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+      - city
+      - city_id
+      - country_iso
+      - id
+      - latest_experience
+      - name
+      - num_people
+      - publish
+      - remote_policy
+      - remote_since
+      - updated_at
+      - url
+      computed_fields:
+      - num_experiences
+      filter: {}
+      limit: 100
+      allow_aggregations: true
+  update_permissions:
+  - role: anonymous
+    permission:
+      columns:
+      - city_id
+      - latest_experience
+      - remote_policy
+      - remote_since
+      - user_id
+      filter: {}
+      check: null
+- table:
+    schema: public
+    name: office_revision
+- table:
+    schema: public
+    name: office_tool
+  object_relationships:
+  - name: office
+    using:
+      foreign_key_constraint_on: office_id
+  - name: tool
+    using:
+      foreign_key_constraint_on: tool_id
+  insert_permissions:
+  - role: anonymous
+    permission:
+      check: {}
+      columns:
+      - office_id
+      - tool_id
+  select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+      - office_id
+      - tool_id
+      filter: {}
+      allow_aggregations: true
+  delete_permissions:
+  - role: anonymous
+    permission:
+      filter: {}
+- table:
+    schema: public
+    name: random_experience
+  select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+      - id
+      - own_experience
+      - own_experience_text
+      - name
+      - office_id
+      - created_at
+      - office_name
+      - city
+      - country_iso
+      - ordering
+      filter: {}
+- table:
+    schema: public
+    name: random_tool
+  select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+      - id
+      - tools
+      - tools_text
+      - name
+      - office_id
+      - created_at
+      - office_name
+      - city
+      - country_iso
+      - tools_array
+      - ordering
+      filter: {}
+- table:
+    schema: public
+    name: tool
+  array_relationships:
+  - name: office_tools
+    using:
+      foreign_key_constraint_on:
+        column: tool_id
+        table:
+          schema: public
+          name: office_tool
+  - name: tool_categories
+    using:
+      foreign_key_constraint_on:
+        column: tool_id
+        table:
+          schema: public
+          name: tool_category
+  - name: tool_comments
+    using:
+      foreign_key_constraint_on:
+        column: tool_id
+        table:
+          schema: public
+          name: tool_comment
+  insert_permissions:
+  - role: anonymous
+    permission:
+      check: {}
+      columns:
+      - description
+      - name
+      - url
+  select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+      - description
+      - id
+      - is_free
+      - name
+      - url
+      filter: {}
+- table:
+    schema: public
+    name: tool_category
+  object_relationships:
+  - name: tool
+    using:
+      foreign_key_constraint_on: tool_id
+  insert_permissions:
+  - role: anonymous
+    permission:
+      check: {}
+      columns:
+      - category_name
+      - tool_id
+  select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+      - category_name
+      - tool_id
+      filter: {}
+  delete_permissions:
+  - role: anonymous
+    permission:
+      filter: {}
+- table:
+    schema: public
+    name: tool_comment
+  insert_permissions:
+  - role: anonymous
+    permission:
+      check: {}
+      columns:
+      - comment
+      - name
+      - tool_id
+  select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+      - comment
+      - created_at
+      - id
+      - name
+      - tool_id
+      filter: {}
+- table:
+    schema: public
+    name: tool_top_10
+  select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+      - id
+      - name
+      - url
+      - description
+      - num_offices
+      filter: {}
+functions:
+- function:
+    schema: public
+    name: search_offices
+- function:
+    schema: public
+    name: search_tools
+remote_schemas:
+- name: DatoCMS
+  definition:
+    url: https://graphql.datocms.com/
+    timeout_seconds: 60
+    headers:
+    - value: a108daf77fa1ff42cec532e3dfc904
+      name: Authorization

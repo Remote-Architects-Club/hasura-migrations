@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE ONLY "public"."office" ALTER COLUMN "remote_since" SET DEFAULT
+      now();
+  type: run_sql

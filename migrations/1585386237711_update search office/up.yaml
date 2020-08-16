@@ -1,0 +1,8 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: "CREATE OR REPLACE FUNCTION public.search_offices(search text)\n RETURNS
+      SETOF office\n LANGUAGE sql\n STABLE\nAS $function$ \nSELECT   * \nFROM     office
+      \nWHERE    search <% ( NAME ) and publish=true\nORDER BY similarity(search,
+      ( NAME )) DESC limit 10; \n\n$function$;"
+  type: run_sql

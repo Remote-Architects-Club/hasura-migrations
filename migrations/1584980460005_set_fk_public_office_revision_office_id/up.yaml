@@ -1,0 +1,10 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: |-
+      alter table "public"."office_revision"
+                 add constraint "office_revision_office_id_fkey"
+                 foreign key ("office_id")
+                 references "public"."office"
+                 ("id") on update cascade on delete cascade;
+  type: run_sql

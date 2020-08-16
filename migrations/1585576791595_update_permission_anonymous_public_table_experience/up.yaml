@@ -1,0 +1,34 @@
+- args:
+    role: anonymous
+    table:
+      name: experience
+      schema: public
+  type: drop_insert_permission
+- args:
+    permission:
+      check: {}
+      columns:
+      - colleagues
+      - company
+      - company_text
+      - final_tips
+      - hardware
+      - name
+      - not_wfh_reason
+      - not_wfh_reason_text
+      - office_id
+      - own_experience
+      - own_experience_text
+      - tools
+      - tools_text
+      - user_ip
+      - wfh
+      localPresets:
+      - key: ""
+        value: ""
+      set: {}
+    role: anonymous
+    table:
+      name: experience
+      schema: public
+  type: create_insert_permission

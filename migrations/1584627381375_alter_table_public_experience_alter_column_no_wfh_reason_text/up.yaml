@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: alter table "public"."experience" rename column "no_wfh_reason_text" to "not_wfh_reason_text";
+  type: run_sql

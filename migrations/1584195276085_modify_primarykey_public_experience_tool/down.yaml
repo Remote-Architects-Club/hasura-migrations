@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: "alter table \"public\".\"experience_tool\"\n    add constraint \"experience_tool_pkey\"
+      \n    primary key ( \"tool_id\", \"experience_id\" );"
+  type: run_sql

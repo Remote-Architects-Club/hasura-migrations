@@ -1,0 +1,33 @@
+- args:
+    permission:
+      allow_upsert: true
+      check: {}
+      columns:
+      - office_id
+      - tool_id
+      filter: {}
+      localPresets:
+      - key: ""
+        value: ""
+      set: {}
+    role: anonymous
+    table:
+      name: office_tool
+      schema: public
+  type: create_select_permission
+- args:
+    permission:
+      allow_upsert: true
+      check: {}
+      columns:
+      - office_id
+      - tool_id
+      localPresets:
+      - key: ""
+        value: ""
+      set: {}
+    role: anonymous
+    table:
+      name: office_tool
+      schema: public
+  type: create_insert_permission

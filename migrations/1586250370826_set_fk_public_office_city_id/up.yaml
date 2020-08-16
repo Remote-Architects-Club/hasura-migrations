@@ -1,0 +1,10 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: |-
+      alter table "public"."office"
+                 add constraint "office_city_id_fkey"
+                 foreign key ("city_id")
+                 references "public"."city"
+                 ("id") on update no action on delete no action;
+  type: run_sql

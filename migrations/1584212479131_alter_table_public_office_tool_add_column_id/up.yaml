@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."office_tool" ADD COLUMN "id" integer NOT NULL UNIQUE;
+  type: run_sql

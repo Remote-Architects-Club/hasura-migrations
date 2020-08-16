@@ -1,0 +1,22 @@
+- args:
+    role: anonymous
+    table:
+      name: office
+      schema: public
+  type: drop_update_permission
+- args:
+    permission:
+      columns:
+      - remote_policy
+      - remote_since
+      - user_id
+      filter: {}
+      localPresets:
+      - key: ""
+        value: ""
+      set: {}
+    role: anonymous
+    table:
+      name: office
+      schema: public
+  type: create_update_permission

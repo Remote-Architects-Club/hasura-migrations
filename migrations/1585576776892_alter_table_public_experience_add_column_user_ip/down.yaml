@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."experience" DROP COLUMN "user_ip";
+  type: run_sql

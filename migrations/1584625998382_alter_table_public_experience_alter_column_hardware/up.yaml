@@ -1,0 +1,10 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."experience" ALTER COLUMN "hardware" TYPE bool;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: COMMENT ON COLUMN "public"."experience"."hardware" IS E'Office provided hardware?';
+  type: run_sql

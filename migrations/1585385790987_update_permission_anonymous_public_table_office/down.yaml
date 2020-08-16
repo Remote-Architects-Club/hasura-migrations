@@ -1,0 +1,29 @@
+- args:
+    role: anonymous
+    table:
+      name: office
+      schema: public
+  type: drop_select_permission
+- args:
+    permission:
+      allow_aggregations: true
+      columns:
+      - city
+      - country_iso
+      - id
+      - latest_experience
+      - name
+      - num_people
+      - remote_policy
+      - remote_since
+      - updated_at
+      - url
+      computed_fields:
+      - num_experiences
+      filter: {}
+      limit: 100
+    role: anonymous
+    table:
+      name: office
+      schema: public
+  type: create_select_permission

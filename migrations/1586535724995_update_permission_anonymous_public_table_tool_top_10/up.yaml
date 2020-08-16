@@ -1,0 +1,17 @@
+- args:
+    permission:
+      allow_aggregations: false
+      columns:
+      - id
+      - name
+      - url
+      - description
+      - num_offices
+      computed_fields: []
+      filter: {}
+      limit: null
+    role: anonymous
+    table:
+      name: tool_top_10
+      schema: public
+  type: create_select_permission

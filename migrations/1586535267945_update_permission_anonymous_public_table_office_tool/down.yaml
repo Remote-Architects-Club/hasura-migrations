@@ -1,0 +1,19 @@
+- args:
+    role: anonymous
+    table:
+      name: office_tool
+      schema: public
+  type: drop_select_permission
+- args:
+    permission:
+      allow_aggregations: false
+      columns:
+      - office_id
+      - tool_id
+      computed_fields: []
+      filter: {}
+    role: anonymous
+    table:
+      name: office_tool
+      schema: public
+  type: create_select_permission

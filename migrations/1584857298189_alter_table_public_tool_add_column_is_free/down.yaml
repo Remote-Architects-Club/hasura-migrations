@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."tool" DROP COLUMN "is_free";
+  type: run_sql

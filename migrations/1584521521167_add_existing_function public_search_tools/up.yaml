@@ -1,0 +1,4 @@
+- args:
+    name: search_tools
+    schema: public
+  type: track_function

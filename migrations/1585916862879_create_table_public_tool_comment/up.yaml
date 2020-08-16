@@ -1,0 +1,18 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: CREATE EXTENSION IF NOT EXISTS pgcrypto;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: CREATE TABLE "public"."tool_comment"("id" uuid NOT NULL DEFAULT gen_random_uuid(),
+      "tool_id" uuid NOT NULL, "name" text NOT NULL, "comment" text NOT NULL, "created_at"
+      timestamptz NOT NULL DEFAULT now(), PRIMARY KEY ("id") , FOREIGN KEY ("tool_id")
+      REFERENCES "public"."tool"("id") ON UPDATE cascade ON DELETE cascade); COMMENT
+      ON TABLE "public"."tool_comment" IS E'Comments to tools';
+  type: run_sql
+- args:
+    name: tool_comment
+    schema: public
+  type: add_existing_table_or_view

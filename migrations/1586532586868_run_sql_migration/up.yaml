@@ -1,0 +1,13 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: "CREATE OR REPLACE VIEW \"public\".\"random_tool\" AS \n SELECT e.id,\n    e.tools,\n
+      \   e.tools_text,\n    e.name,\n    e.office_id,\n    e.created_at,\n    o.name
+      AS office_name,\n    o.city,\n    o.country_iso,\n    (tools_array.*)::text
+      AS tools_array,\n    random() AS ordering\n   FROM experience e,\n    office
+      o,\n    LATERAL ( SELECT json_agg(json_build_object('id', t.id, 'name', t.name,
+      'url', t.url)) AS json_agg\n           FROM (office_tool ot\n             JOIN
+      tool t ON ((t.id = ot.tool_id)))\n          WHERE (ot.office_id = e.office_id))
+      tools_array\n  WHERE ((e.tools_text IS NOT NULL) AND (o.id = e.office_id) AND
+      (tools_array.* IS NOT NULL))\n  ORDER BY (random())\n LIMIT 6;"
+  type: run_sql

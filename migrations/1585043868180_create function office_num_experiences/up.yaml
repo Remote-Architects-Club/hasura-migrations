@@ -1,0 +1,7 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: "CREATE FUNCTION office_num_experiences(office_row office)\nRETURNS BIGINT
+      AS $$\nSELECT \n   COUNT(*) \nFROM \n   experience\nWHERE\n   office_id = office_row.id;\n$$
+      LANGUAGE sql STABLE;"
+  type: run_sql

@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: DROP TRIGGER "save_office_latest_experience_date" ON "public"."experience";
+  type: run_sql

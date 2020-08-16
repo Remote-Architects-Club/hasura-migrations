@@ -1,0 +1,13 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: "CREATE OR REPLACE VIEW \"random_experience\" AS \n SELECT e.id,\n e.own_experience,\n
+      \   e.own_experience_text,\n    e.name,\n    e.office_id,\n    e.created_at,\n
+      \   o.name AS office_name,\n    o.city,\n    o.country_iso,\n    random() AS
+      ordering\n   FROM experience e,\n    office o\n  WHERE (e.own_experience_text
+      IS NOT NULL)\n  ORDER BY (random())\n LIMIT 3;"
+  type: run_sql
+- args:
+    name: random_experience
+    schema: public
+  type: add_existing_table_or_view

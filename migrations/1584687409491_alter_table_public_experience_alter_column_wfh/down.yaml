@@ -1,0 +1,15 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."experience" ALTER COLUMN "wfh" TYPE integer;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE ONLY "public"."experience" ALTER COLUMN "wfh" SET DEFAULT 1;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: COMMENT ON COLUMN "public"."experience"."wfh" IS E'WFH? 1-yes, 2-no, 3-vacation';
+  type: run_sql

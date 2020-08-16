@@ -1,0 +1,21 @@
+- args:
+    permission:
+      allow_aggregations: false
+      columns:
+      - company_policy
+      - company_rating
+      - created_at
+      - id
+      - office_id
+      - other_tools
+      - own_experience
+      - own_rating
+      - started_at
+      computed_fields: []
+      filter: {}
+      limit: 100
+    role: anonymous
+    table:
+      name: experience
+      schema: public
+  type: create_select_permission

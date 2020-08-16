@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."tool" ADD COLUMN "is_free" boolean NOT NULL DEFAULT
+      false;
+  type: run_sql

@@ -1,0 +1,14 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: CREATE TABLE "public"."tool_category"("tool_id" uuid NOT NULL, "category_name"
+      text NOT NULL, PRIMARY KEY ("tool_id","category_name") , FOREIGN KEY ("tool_id")
+      REFERENCES "public"."tool"("id") ON UPDATE restrict ON DELETE cascade, FOREIGN
+      KEY ("category_name") REFERENCES "public"."category_tool"("name") ON UPDATE
+      cascade ON DELETE cascade); COMMENT ON TABLE "public"."tool_category" IS E'Relationshiop
+      tools <> categories';
+  type: run_sql
+- args:
+    name: tool_category
+    schema: public
+  type: add_existing_table_or_view

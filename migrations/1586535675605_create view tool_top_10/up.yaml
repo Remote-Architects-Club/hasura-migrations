@@ -1,0 +1,12 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: "CREATE OR REPLACE VIEW \"public\".\"tool_top_10\" AS \n select t.id, t.name,
+      t.url, t.description, count(DISTINCT ot.office_id) as num_offices from office_tool
+      ot join tool t on t.id = ot.tool_id group by t.id order by num_offices DESC
+      limit 10;"
+  type: run_sql
+- args:
+    name: tool_top_10
+    schema: public
+  type: add_existing_table_or_view

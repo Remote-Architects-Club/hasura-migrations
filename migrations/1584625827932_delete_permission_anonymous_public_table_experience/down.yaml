@@ -1,0 +1,20 @@
+- args:
+    permission:
+      check: {}
+      columns:
+      - company_policy
+      - company
+      - office_id
+      - other_tools
+      - own_experience_text
+      - own_experience
+      - remote_since
+      localPresets:
+      - key: ""
+        value: ""
+      set: {}
+    role: anonymous
+    table:
+      name: experience
+      schema: public
+  type: create_insert_permission

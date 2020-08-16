@@ -1,0 +1,17 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: "CREATE OR REPLACE VIEW \"public\".\"random_tool\" AS \n SELECT \n    e.id,\n
+      \   e.tools,\n    e.tools_text,\n    e.name,\n    e.office_id,\n    e.created_at,\n
+      \   o.name AS office_name,\n    o.city,\n    o.country_iso,\n    tools_array::text,
+      \  \n    random() AS ordering\n   FROM experience e, office o, lateral(\n         SELECT
+      json_agg(\n           json_build_object(\n             'id',id,\n             'name',name\n
+      \          )\n         ) \n        from office_tool ot join tool t on t.id =
+      ot.tool_id where ot.office_id = e.office_id) as tools_array\n        \n    \n
+      \    \n      \n    WHERE (e.tools_text IS NOT NULL and o.id = e.office_id and
+      tools_array is not null) \n  \n  ORDER BY (random())\n LIMIT 6;"
+  type: run_sql
+- args:
+    name: random_tool
+    schema: public
+  type: add_existing_table_or_view

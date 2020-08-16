@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."experience" ADD COLUMN "wfh" integer NOT NULL DEFAULT
+      1;
+  type: run_sql

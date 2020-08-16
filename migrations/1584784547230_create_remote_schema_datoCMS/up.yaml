@@ -1,0 +1,10 @@
+- args:
+    definition:
+      forward_client_headers: false
+      headers:
+      - name: Authorization
+        value: a108daf77fa1ff42cec532e3dfc904
+      timeout_seconds: 60
+      url: https://graphql.datocms.com/
+    name: datoCMS
+  type: add_remote_schema

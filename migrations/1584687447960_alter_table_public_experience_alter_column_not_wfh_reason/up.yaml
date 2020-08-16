@@ -1,0 +1,17 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."experience" ALTER COLUMN "not_wfh_reason" TYPE int4;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE ONLY "public"."experience" ALTER COLUMN "not_wfh_reason" SET
+      DEFAULT 0;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: COMMENT ON COLUMN "public"."experience"."not_wfh_reason" IS E'0-job doesnt
+      allow; 1-boss doesnt allow; 2-doesnt want';
+  type: run_sql

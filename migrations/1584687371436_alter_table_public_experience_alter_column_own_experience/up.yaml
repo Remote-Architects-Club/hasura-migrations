@@ -1,0 +1,17 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."experience" ALTER COLUMN "own_experience" TYPE int4;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE ONLY "public"."experience" ALTER COLUMN "own_experience" SET
+      DEFAULT 0;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: COMMENT ON COLUMN "public"."experience"."own_experience" IS E'Own experience
+      rating (0-bad, 1-medium, 2-good)';
+  type: run_sql

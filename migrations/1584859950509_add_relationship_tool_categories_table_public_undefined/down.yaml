@@ -1,0 +1,6 @@
+- args:
+    relationship: tool_categories
+    table:
+      name: category_tool
+      schema: public
+  type: drop_relationship

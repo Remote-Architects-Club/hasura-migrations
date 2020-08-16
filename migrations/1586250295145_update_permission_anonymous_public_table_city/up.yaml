@@ -1,0 +1,18 @@
+- args:
+    permission:
+      allow_upsert: true
+      check: {}
+      columns:
+      - country_iso
+      - lat
+      - lng
+      - name
+      localPresets:
+      - key: ""
+        value: ""
+      set: {}
+    role: anonymous
+    table:
+      name: city
+      schema: public
+  type: create_insert_permission

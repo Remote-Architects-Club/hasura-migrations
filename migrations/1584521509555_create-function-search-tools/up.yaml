@@ -1,0 +1,7 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: "CREATE FUNCTION search_tools(search text) \nreturns setof tool AS $$ \nSELECT
+      \  * \nFROM     tool \nWHERE    search <% ( NAME ) \nORDER BY similarity(search,
+      ( NAME )) DESC limit 10; \n\n$$ language sql stable;"
+  type: run_sql

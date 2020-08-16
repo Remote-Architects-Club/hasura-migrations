@@ -1,0 +1,7 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: |-
+      CREATE INDEX office_name_gin_idx ON office
+      USING GIN ((name) gin_trgm_ops);
+  type: run_sql

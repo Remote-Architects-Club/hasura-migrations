@@ -1,0 +1,7 @@
+- args:
+    name: office_id_fkey
+    new_name: office
+    table:
+      name: experience
+      schema: public
+  type: rename_relationship

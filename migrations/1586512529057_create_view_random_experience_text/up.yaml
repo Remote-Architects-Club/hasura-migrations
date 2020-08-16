@@ -1,0 +1,13 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: "create view random_experience_text as\nSELECT \n  e.id,\n  e.own_experience_text,
+      \n  e.name,\n  e.office_id,\n  e.created_at,\n  o.name as office_name,\n  o.city,\n
+      \ o.country_iso,\n  random() as ordering\nFROM \n  experience as e, office as
+      o\nWHERE \n  e.own_experience_text is not null\nORDER BY\n  ordering \nLIMIT
+      3;"
+  type: run_sql
+- args:
+    name: random_experience_text
+    schema: public
+  type: add_existing_table_or_view

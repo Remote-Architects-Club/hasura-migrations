@@ -1,0 +1,27 @@
+- args:
+    permission:
+      allow_upsert: true
+      check: {}
+      columns:
+      - colleagues
+      - company
+      - company_text
+      - final_tips
+      - hardware
+      - no_wfh_reason_text
+      - office_id
+      - own_experience
+      - own_experience_text
+      - tools
+      - tools_text
+      - vacation
+      - wfh
+      localPresets:
+      - key: ""
+        value: ""
+      set: {}
+    role: anonymous
+    table:
+      name: experience
+      schema: public
+  type: create_insert_permission

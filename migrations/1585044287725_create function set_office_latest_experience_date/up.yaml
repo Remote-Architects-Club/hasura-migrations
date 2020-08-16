@@ -1,0 +1,16 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: |-
+      CREATE OR REPLACE FUNCTION set_office_latest_experience_date()
+       RETURNS void
+       LANGUAGE plpgsql
+      AS $function$
+      DECLARE
+        _new record;
+      BEGIN
+        _new := NEW;
+        update office set latest_experience = _new.created_at where office.id = _new.office_id;
+      END;
+      $function$;
+  type: run_sql

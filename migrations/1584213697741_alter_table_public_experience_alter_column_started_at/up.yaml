@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: alter table "public"."experience" rename column "started_at" to "remote_since";
+  type: run_sql

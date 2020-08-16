@@ -1,0 +1,18 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: |-
+      INSERT INTO "public"."category_tool" ("name", "comment") VALUES ('cad', NULL);
+      INSERT INTO "public"."category_tool" ("name", "comment") VALUES ('chat', NULL);
+      INSERT INTO "public"."category_tool" ("name", "comment") VALUES ('email', NULL);
+      INSERT INTO "public"."category_tool" ("name", "comment") VALUES ('file sharing', NULL);
+      INSERT INTO "public"."category_tool" ("name", "comment") VALUES ('graphics', NULL);
+      INSERT INTO "public"."category_tool" ("name", "comment") VALUES ('meetings', NULL);
+      INSERT INTO "public"."category_tool" ("name", "comment") VALUES ('other', NULL);
+      INSERT INTO "public"."category_tool" ("name", "comment") VALUES ('project management', NULL);
+      INSERT INTO "public"."category_tool" ("name", "comment") VALUES ('rendering', NULL);
+      INSERT INTO "public"."category_tool" ("name", "comment") VALUES ('screen sharing', NULL);
+      INSERT INTO "public"."category_tool" ("name", "comment") VALUES ('team management', NULL);
+      INSERT INTO "public"."category_tool" ("name", "comment") VALUES ('vc', NULL);
+      INSERT INTO "public"."category_tool" ("name", "comment") VALUES ('vpn', NULL);
+  type: run_sql

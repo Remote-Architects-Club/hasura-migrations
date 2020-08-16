@@ -1,0 +1,12 @@
+- args:
+    name: experience_tools
+    table:
+      name: tool
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: tool_id
+        table:
+          name: experience_tool
+          schema: public
+  type: create_array_relationship

@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: alter table "public"."office_revision" add foreign key ("id") references
+      "public"."office"("id") on update cascade on delete cascade;
+  type: run_sql

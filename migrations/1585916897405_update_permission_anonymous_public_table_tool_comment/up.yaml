@@ -1,0 +1,17 @@
+- args:
+    permission:
+      allow_aggregations: false
+      columns:
+      - comment
+      - created_at
+      - id
+      - name
+      - tool_id
+      computed_fields: []
+      filter: {}
+      limit: null
+    role: anonymous
+    table:
+      name: tool_comment
+      schema: public
+  type: create_select_permission

@@ -1,0 +1,48 @@
+- args:
+    relationship: offices
+    table:
+      name: country
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: office
+    table:
+      name: experience
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: experience_tools
+    table:
+      name: experience
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: experience
+    table:
+      name: experience_tool
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: tool
+    table:
+      name: experience_tool
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: country
+    table:
+      name: office
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: experiences
+    table:
+      name: office
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: experience_tools
+    table:
+      name: tool
+      schema: public
+  type: drop_relationship

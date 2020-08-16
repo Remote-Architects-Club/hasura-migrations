@@ -1,0 +1,17 @@
+- args:
+    permission:
+      allow_upsert: true
+      check: {}
+      columns:
+      - description
+      - name
+      - url
+      localPresets:
+      - key: ""
+        value: ""
+      set: {}
+    role: anonymous
+    table:
+      name: tool
+      schema: public
+  type: create_insert_permission

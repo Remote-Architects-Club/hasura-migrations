@@ -1,0 +1,28 @@
+- args:
+    permission:
+      allow_aggregations: false
+      columns:
+      - colleagues
+      - company
+      - company_text
+      - created_at
+      - final_tips
+      - hardware
+      - id
+      - no_wfh_reason
+      - no_wfh_reason_text
+      - office_id
+      - own_experience
+      - own_experience_text
+      - tools
+      - tools_text
+      - vacation
+      - wfh
+      computed_fields: []
+      filter: {}
+      limit: null
+    role: anonymous
+    table:
+      name: experience
+      schema: public
+  type: create_select_permission

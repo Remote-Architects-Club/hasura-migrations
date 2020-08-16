@@ -1,0 +1,10 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."office_tool" ADD COLUMN "id" int4;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."office_tool" ALTER COLUMN "id" DROP NOT NULL;
+  type: run_sql

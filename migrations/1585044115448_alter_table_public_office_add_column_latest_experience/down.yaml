@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."office" DROP COLUMN "latest_experience";
+  type: run_sql

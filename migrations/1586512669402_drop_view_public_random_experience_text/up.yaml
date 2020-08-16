@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: DROP VIEW "public"."random_experience_text";
+  type: run_sql
